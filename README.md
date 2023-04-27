@@ -6,7 +6,7 @@
 
 ## 警告:warning: :warning: :warning:
 
-如果你不是内核作者，使用他人的劳动成果构建KernelSU，请仅供自己使用，不要分享给别人，这是对作者的劳动成果的尊重。
+如果你不是内核作者，使用他人的劳动成果构建KernelSU，请仅供自己使用，不要分享给别人，这是对原作者的劳动成果的尊重。
 
 ## 支持内核
 
@@ -47,7 +47,32 @@ Fork 本仓库到你的储存库然后按照以下内容编辑config.env，之�
 
 例如: Image.gz-dtb
 
-### Clang version
+### Clang
+
+#### Use custom clang
+
+改成true
+可以使用除google官方的clang，如[proton-clang](https://github.com/kdrag0n/proton-clang)
+
+#### Custom Clang
+
+支持github仓库或者zip压缩包的直链
+
+#### Custom Clang Commands
+
+都用自定义clang了，自己改改编译器位置应该会吧 :)
+
+#### Clang Branch
+由于 [#23](https://github.com/xiaoleGun/KernelSU_Action/issues/23) 的需要，我们提供可自定义Google上游分支的选项，主要的有分支有
+| Clang 分支 |
+| ---------- |
+| master |
+| master-kernel-build-2021 |
+| master-kernel-build-2022 |
+
+或者其它分支，请根据自己的需求在 https://android.googlesource.com/platform/prebuilts/clang/host/linux-x86 中寻找
+
+#### Clang version
 
 填写需要使用的 Clang 版本
 | Clang 版本 | 对应 Android 版本 | AOSP-Clang 版本 |
@@ -74,6 +99,13 @@ Fork 本仓库到你的储存库然后按照以下内容编辑config.env，之�
 ### Use KernelSU
 
 是否使用 KernelSU，用于排查内核故障或单独编译内核
+
+#### KernelSU Branch or Tag
+
+选择KernelSU的分支或tag:
+- main分支(开发版): `KERNELSU_TAG=main`
+- 最新TAG(稳定版): `KERNELSU_TAG=`
+- 指定TAG(如`v0.5.2`): `KERNELSU_TAG=v0.5.2`
 
 ### Use Kprobes
 

@@ -58,13 +58,9 @@ jobs:
       if: env.USE_CUSTOM_CLANG == 'true'
       run: |
         cd $GITHUB_WORKSPACE/kernel_workspace
-        if [[ ${{ env.CUSTOM_CLANG }} =~ github ]]; then
-            git clone ${{ env.CUSTOM_CLANG }} -b ${{ env.CUSTOM_CLANG_BRANCH }} clang-aosp
-        else
-            wget -O clang.zip ${{ env.CUSTOM_CLANG }}
-            mkdir clang-aosp
-            unzip clang.zip -d clang-aosp/
-        fi
+        wget -O clang.zip ${{ env.CUSTOM_CLANG }}
+        mkdir clang-aosp
+        unzip clang.zip -d clang-aosp/
 
     - name: Download mkbootimg tools
       if: env.MAKE_BOOT_IMAGE == 'true'

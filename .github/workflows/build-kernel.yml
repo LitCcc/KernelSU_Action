@@ -51,8 +51,8 @@ jobs:
         wget https://android.googlesource.com/platform/prebuilts/clang/host/linux-x86/+archive/refs/heads/${{ env.CLANG_BRANCH }}/clang-${{ env.CLANG_VERSION }}.tar.gz
         tar -C clang-aosp/ -zxvf clang-${{ env.CLANG_VERSION }}.tar.gz
         mkdir gcc-aosp
-        wget https://android.googlesource.com/platform/prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9/+archive/refs/tags/android-12.1.0_r27.tar.gz
-        tar -C gcc-aosp/ -zxvf android-12.1.0_r27.tar.gz
+        wget https://android.googlesource.com/platform/prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9/+archive/refs/tags/android-13.0.0_r0.67.tar.gz
+        tar -C gcc-aosp/ -zxvf aarch64-linux-android-4.9-refs_tags_android-13.0.0_r0.67.tar.gz
 
     - name: Download Custom-Clang
       if: env.USE_CUSTOM_CLANG == 'true'
@@ -61,6 +61,9 @@ jobs:
         mkdir clang-aosp
         wget https://github.com/ZyCromerZ/Clang/releases/download/17.0.0-20230427-release/Clang-17.0.0-20230427.tar.gz
         tar -C clang-aosp/ -zxvf Clang-17.0.0-20230427.tar.gz
+        mkdir gcc-aosp
+        wget https://android.googlesource.com/platform/prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9/+archive/refs/tags/android-13.0.0_r0.67.tar.gz
+        tar -C gcc-aosp/ -zxvf aarch64-linux-android-4.9-refs_tags_android-13.0.0_r0.67.tar.gz
 
     - name: Download mkbootimg tools
       if: env.MAKE_BOOT_IMAGE == 'true'
